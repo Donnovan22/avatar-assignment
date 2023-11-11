@@ -1,9 +1,14 @@
-<div *ngIf="movie">
-    <h2>{{ movie.title }}</h2>
-    <p>Episode: {{ movie.episode_id }}</p>
-    <p>Director: {{ movie.director }}</p>
-    <p>Producer: {{ movie.producer }}</p>
-    <p>Release Date: {{ movie.releaseDate }}</p>
-    <!-- Add more details as needed -->
+<div *ngIf="movie" class="container mt-4">
+    <h2 class="mb-3">{{ movie.title }}</h2>
+    <p>{{ movie.opening_crawl }}</p>
+    <p><strong>Episode:</strong> {{ movie.episode_id }}</p>
+    <p><strong>Director:</strong> {{ movie.director }}</p>
+    <p><strong>Producer:</strong> {{ movie.producer }}</p>
+    <p><strong>Release Date:</strong> {{ movie.release_date }}</p>
+  
+    <p><strong>Characters:</strong></p>
+    <ul class="list-group">
+      <li *ngFor="let character of characters" class="list-group-item">{{ character.name }}</li>
+    </ul>
   </div>
   

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { DataService } from '../../data.service';
+import { MovieService } from '../movie.service';
 import { Movie } from '../movie.model';
 
 @Component({
@@ -9,18 +9,18 @@ import { Movie } from '../movie.model';
 })
 export class MovieListComponent implements OnInit{
   movies: Movie[] = [];
+  selectedMovie!: Movie;
 
-  constructor(private dataService: DataService) {}
+  constructor(private movieService: MovieService) {}
 
   ngOnInit(): void {
-    this.dataService.getMovies().subscribe((data: any) => {
+    this.movieService.getMovies().subscribe((data: any) => {
       this.movies = data.results;
     });
   }
 
-  selectedMovie!: Movie;
-
   showDetails(movie: Movie): void {
     this.selectedMovie = movie;
   }
+
 }
